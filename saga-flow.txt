@@ -1,0 +1,61 @@
+<View>
+  <Header />
+  <RefreshButton onClick={handleClick}/>
+  <Table data={data}/>
+  <Footer />
+</View>
+
+UI
+  - RefreshButton
+    - onClick = handleClick
+
+CONTAINER
+  - componentDidMount
+    - dispatch FETCH_USERS
+  - render
+    - <Component
+        data={users}
+        handleClick={dispatchFetchUsers}
+  - props
+    - handleClick
+      - dispatch FETCH_USERS
+
+SAGA
+  - wait for
+    - FETCH_USERS
+      - dispatch FETCH_USERS_REQUESTED
+      - api.fetch Users
+        - if success, dispatch FETCH_USERS_RESOLVED
+        - if error, dispatch FETCH_USERS_REJECTED
+
+REDUCER
+  - wait for
+    - FETCH_USERS_REQUESTED
+    - FETCH_USERS_RESOLVED
+    - FETCH_USERS_REJECTED
+
+==========================================================
+
+UI
+  - button
+    - onLoginButtonClick = handleLoginButtonClick
+
+CONTAINER
+  - props
+    - handleLoginButtonClick
+      - dispatch LOGIN_USER
+
+SAGA
+  - wait for
+    - LOGIN_USER
+      - dispatch LOGIN_USER_REQUESTED
+      - api.fetch login
+        - if success, dispatch LOGIN_USER_RESOLVED
+        - if error, dispatch LOGIN_USER_REJECTED
+
+REDUCER
+  - wait for
+    - LOGIN_USER_REQUESTED
+    - LOGIN_USER_RESOLVED
+    - LOGIN_USER_REJECTED
+

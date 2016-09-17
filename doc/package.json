@@ -1,0 +1,14 @@
+{
+  "name": "doc",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Felipe Apostol <flipjs.io@gmail.com> (http://flipjs.io/)",
+  "license": "MIT",
+  "devDependencies": {
+    "esdoc-es7-plugin": "0.0.3"
+  }
+}
